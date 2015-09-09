@@ -1,0 +1,252 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+$primary-color: #fff;
+$secondary-color: #000;
+$third-color: #444;
+
+$primary-font-color: #fff;
+$secondary-font-color: #000;
+
+$dark-earth: #444;
+$background: #f7f7f7;
+$overlay: rgba(0, 0, 0, 0.46);
+
+$primary-font: 'Montserrat', sans-serif;
+$secondary-font: 'Arial', sans-serif;
+
+:focus {
+    outline: 0;
+}
+/* ------------ */
+/*  Structure   */
+/* ------------ */
+html {
+    overflow-x: hidden;
+}
+h1 {
+    margin: 40px 0;
+    font-size: 3em;
+    text-align: center;
+    color: $primary-font-color;
+}
+
+p {
+    
+}
+body {
+    font-kerning: normal;
+    font-family: $primary-font;
+}
+
+.center-content {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.full-section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: $primary-color;
+}
+@mixin full-width {
+    width: 90%;
+}
+@mixin display-flex {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+@mixin flex-center {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+@mixin transition {
+    -webkit-transition: .2s ease-in;
+    -moz-transition: .2s ease-in;
+    -ms-transition: .2s ease-in;
+    transition: .2s ease-in;
+}
+/* ------------ */
+/*  Navigation  */
+/* ------------ */
+nav {
+    width: 50%;
+    float: right;
+    ul {
+        float: right;
+        padding: 15px;
+        li {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            display: inline-block;
+            a {
+                color: $primary-font-color;
+                text-decoration: none;
+                &:hover {
+                border-bottom: 2px solid $primary-color;
+                }
+            }
+        }
+    }
+}
+
+/* ------------ */
+/*  Landing Page   */
+/* ------------ */
+.landing-page {
+    @extend .full-section;
+    background-size: cover;
+    background: url("http://billypurvis.co.uk/Wilson/bg.jpeg") center center fixed;
+}
+.landing-content {
+    top: 40%;
+    width: 100%;
+    position: absolute;
+    @extend .center-content;
+}
+button {
+    @include transition;
+    border: 2px solid $primary-color;
+}
+.primary-button {
+    width: 200px;
+    margin: 20px;
+    font-size: 1.2em;
+    padding: 10px 10px;
+    background: transparent;
+    text-transform: uppercase;
+    font-family: $primary-font;
+    color: $primary-font-color;
+        &:hover {
+            color: $secondary-font-color;
+            background: $primary-color;
+        }
+}
+/* ------------ */
+/*   Main Body  */
+/* ------------ */
+.secondary-title {
+    color: $secondary-color;
+}
+.service-panel-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background: $background;
+}
+.service-panel {
+    width: 80%;
+    height: 100%;
+    @include flex-center;
+    @include display-flex;
+    @extend .center-content;
+}
+.body-content {
+    width: 100%;
+    margin: 100px auto;
+}
+.inner-body-content {
+    width: 50%;
+    @extend .center-content;
+}
+.service-card {
+    width: 15%;
+    margin: 2.5%;
+    text-align: center;
+    color: $dark-earth;
+}
+i.fa {
+    margin: 15px 0;
+    font-size: 5em;
+}
+/* ------------ */
+/*     Form     */
+/* ------------ */
+.form-section {
+    width: 620px;
+    @extend .center-content;
+    @extend .full-section;
+    @include flex-center;
+    @include display-flex;
+}
+form {
+    width: 100%;
+    input, 
+    textarea {
+        border: 0;
+        width: 100%;
+        font-size: 1em;
+        margin-bottom: 30px;
+        border-bottom: 1px solid $secondary-color;
+    }
+        input {
+            height: 30px;
+        }
+        #submit {
+            float: left;
+            width: 100px;
+            border: 1px solid $secondary-color;
+            background: transparent;
+            text-transform: uppercase;
+        }
+}
+    .hide {
+        display: none!important;
+    }
+/* ------------ */
+/*     Yo Dawg, Responsive time     */
+/* ------------ */
+@media (max-width: 320px){
+    .overlay {
+        height: 0;
+        overflow-y: hidden;
+        transition: .5s ease;
+        background-color: $overlay;
+    }
+    .overlay-active {
+        height: 100vh;
+        visibility: visible;
+    }
+    /* ------------ */
+    /*   Main Body  */
+    /* ------------ */
+    .inner-body-content, 
+    .service-card, 
+    .form-section {
+        @include full-width;
+    }
+    .service-panel,
+    .service-panel-container {
+        height: auto;
+    }
+    i.fa-bars {
+        right: 20px;
+        float: right;
+        font-size: 2em;
+        position: absolute;
+        color: $primary-font-color;
+    }
+    nav {
+        width: 100%;
+        float: none;
+        text-align: center;
+        padding-top: 50px;
+        ul {
+            float: none;
+            li {
+                display: block;
+            }
+        }
+    }
+}
