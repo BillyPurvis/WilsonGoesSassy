@@ -3,7 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
+
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
@@ -68,7 +68,13 @@ body {
 }
 @mixin flex-center {
     justify-content: center;
+    -ms-justify-content: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
     align-content: center;
+    -ms-align-content: center;
+    -moz-align-content: center;
+    -webkit-align-content: center;
     align-items: center;
 }
 @mixin transition {
